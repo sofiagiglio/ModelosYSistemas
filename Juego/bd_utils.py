@@ -31,3 +31,19 @@ def traer_url_foto_por_id(id_busqueda):
     post = '.png'
     url_foto = pre + lista[len(lista)-1] + post
     return url_foto
+
+def crear_usuario(nombre, usr, passw):
+    #tomo usr y passw y lo guardo en la base de datos
+    c.execute(f'INSERT INTO USUARIOS (NOMBRE, USUARIO, CONTRASENIA) VALUES("{nombre}", "{usr}","{passw}")' )
+    bd.commit()
+
+def buscar_usuario(usr):
+    #responder true si existe el usr
+    pass
+
+def loguear(usr, passw):
+    #tomo usr y passw y me fijo si existe en la base de datos y si coincide con la pass
+    #devuelvo true o false según si coincide la passw
+    #return True/False
+    pass
+
