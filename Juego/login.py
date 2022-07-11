@@ -41,8 +41,14 @@ class Login:
         etiqueta = tkinter.Label(f1, text = "¡Welcome to Roluby Clash!", font = "Arial 30", bg = "pink")
         etiqueta.pack()
 
-        self.cajaTexto= EntryWithPlaceholder(f1,"nombre")
-        self.cajaTexto.pack()
+        self.cajaNombre = EntryWithPlaceholder(f1,"Ingrese su nombre")
+        self.cajaNombre.pack()
+        
+        self.cajaUsuario = EntryWithPlaceholder(f1,"Ingrese nombre de usuario")
+        self.cajaUsuario.pack()
+        
+        self.cajaPassw = EntryWithPlaceholder(f1,"Ingrese su contraseña")
+        self.cajaPassw.pack()
 
         boton1 = tkinter.Button(f2, text = "Let's go ;)", bg = "pink", command=self.ejecutar)
         boton1.pack()
@@ -50,8 +56,10 @@ class Login:
         self.ventana.mainloop()
     
     def ejecutar(self):
-        palabra = self.cajaTexto.get()
-        crear_usuario(palabra, "usuario", "passwo")
+        nombre = self.cajaNombre.get()
+        usuario = self.cajaUsuario.get()
+        passw =self.cajaPassw.get()
+        crear_usuario(nombre, usuario, passw)
         self.ventana.destroy()
 
 if __name__ == "__main__":
