@@ -49,6 +49,7 @@ class Login:
         
         self.cajaPassw = EntryWithPlaceholder(f1,"Ingrese su contraseña")
         self.cajaPassw.pack()
+        self.cajaPassw['show'] = "*"
 
         boton1 = tkinter.Button(f2, text = "Let's go ;)", bg = "pink", command=self.ejecutar)
         boton1.pack()

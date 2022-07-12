@@ -38,12 +38,25 @@ def crear_usuario(nombre, usr, passw):
     bd.commit()
 
 def buscar_usuario(usr):
-    #responder true si existe el usr
-    pass
+    c.execute(f'SELECT USUARIO WHERE "{usr}" = "{usr}"')
+    usr_bd = resp[1][1]
+   # if usr_bd == "{usr}":
+        #print("Ese nombre de usuario ya existe")
 
 def loguear(usr, passw):
     #tomo usr y passw y me fijo si existe en la base de datos y si coincide con la pass
     #devuelvo true o false según si coincide la passw
     #return True/False
-    pass
+    c.execute(f'SELECT * FROM USUARIOS WHERE USUARIO = "{usr}";')
+    resp = self.c.fetchall()
+    if resp[0][2] == passw:
+        return True
+    return False
 
+'''def existe_usuario():
+    c.execute(f'SELECT * FROM USUARIOS WHERE USUARIO = "{usr}";')
+    resp = self.c.fetchall()
+    if resp:
+        return True
+    return False
+if not self.existe_usuario'''
