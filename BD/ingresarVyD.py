@@ -1,7 +1,7 @@
 import tkinter
 import sqlite3
 
-bd = sqlite3.connect('/home/alca/Escritorio/Ortiz_Balbuena_ProgII/JuegoClash/BDCLash.db')
+bd = sqlite3.connect('/home/alca/Documentos/ClashRoluby/Juego/BDClash.bd')
 
 ventana = tkinter.Tk()
 cur = bd.cursor()

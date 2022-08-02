@@ -40,8 +40,14 @@ lomo = ImageTk.PhotoImage(Image.open('lomo_clash.png'))
 l2 = tkinter.Label(f3, image=lomo)
 l2.grid(column=0, row=0)
 
-boton1 = tkinter.Button(f2, text = "Golpear", command = lambda: print("_ golpeó a _"))
+boton1 = tkinter.Button(f2, text = "Vida", command = lambda: print("La vida de j1 es _ y la de j2 es _"))
 boton1.pack()
+
+boton2 = tkinter.Button(f2, text = "Daño", command = lambda: print("El daño de j1 es _ y la de j2 es _"))
+boton2.pack()
+
+boton2 = tkinter.Button(f2, text = "Velocidad", command = lambda: print("La velocidad de j1 es _ y la de j2 es _"))
+boton2.pack()
 
 boton2 = tkinter.Button(f2, text = "Rendirse", command = lambda: print("_ se rindió"))
 boton2.pack()
