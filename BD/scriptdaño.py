@@ -1,6 +1,6 @@
 import sqlite3
 
-bd = sqlite3.connect('/home/alca/Escritorio/Ortiz_Balbuena_ProgII/JuegoClash/BDCLash.db')
+bd = sqlite3.connect('')
 c = bd.cursor()
 c.execute('select * from CARTAS')
 respuesta = c.fetchall()

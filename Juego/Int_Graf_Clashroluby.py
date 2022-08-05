@@ -15,11 +15,12 @@ def preparar_carta():
     url_final = datos[0]
     vida = datos[1]
     danio = datos[2]
+    velocidad = datos[4]
     req = Request(url_final, headers={'User-Agent': 'Mozilla/5.0'})
     raw_data = urlopen(req).read()
     photo = ImageTk.PhotoImage(data=raw_data)
-    print(f'Carta sorteada para jugador daño: {danio} vida: {vida}')
-    return (photo, vida, danio)
+    print(f'Carta sorteada para jugador DAÑO: {danio} VIDA: {vida} VELOCIDAD: {velocidad}')
+    return (photo, vida, danio, velocidad)
 
 
 f1 = tkinter.Frame(ventana)
