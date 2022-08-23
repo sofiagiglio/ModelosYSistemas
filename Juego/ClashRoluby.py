@@ -4,6 +4,7 @@ from bd_utils import traer_url_foto_por_id, traer_carta_random
 from urllib.request import Request, urlopen
 import login
 from functools import partial
+from itertools import cycle
 
 # l = login.Login()
 
@@ -95,7 +96,6 @@ class Jugador:
         self.nombre = datos[4]
 
 if __name__ == "__main__":
-    
     j1 = Jugador()
     print(j1.vida)
     j2 = Jugador()
