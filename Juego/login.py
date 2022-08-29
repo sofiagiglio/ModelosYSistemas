@@ -1,5 +1,6 @@
 import tkinter
 from bd_utils import crear_usuario
+import bcrypt
 
 class EntryWithPlaceholder(tkinter.Entry):
     def __init__(self, master=None, placeholder="PLACEHOLDER", color='grey'):
@@ -63,6 +64,19 @@ class Login:
         crear_usuario(nombre, usuario, passw)
         self.ventana.destroy()
 
+    def encriptar(passw):
+        passw = passw.encode('utf-8')
+        hashed = bcrypt.hashpw(passw, bcrypt.gensalt(10))
+        print(type(hashed))
+        return hashed
+
+    def chechPas(password, hashed):
+        check = password.encode('utf-8')
+        if bcrypt.checkpw(check, hashed):
+            return True
+        else:
+            return False
+    
 if __name__ == "__main__":
     l = Login()
     

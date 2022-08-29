@@ -2,7 +2,7 @@ import socket
 import sys
  
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = '192.168.88.17'
+host = '192.168.88.20'
 port = 8080
 
 sock.bind((host, port))
@@ -15,11 +15,11 @@ connection, client = sock.accept()
 print(client, 'Conectado')
  
 data = connection.recv(16)
-print('received "%s"' % data)
+print('Recibido "%s"' % data)
 if data:
  
     connection.sendall(data)
 else:
-    print('no data from', client)
+    print('Sin datos de', client)
  
 connection.close()
