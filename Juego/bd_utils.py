@@ -1,7 +1,7 @@
 import sqlite3
 import random
 
-bd = sqlite3.connect('/home/alca/Documentos/ClashRoluby/Juego/BDCLash.db')
+bd = sqlite3.connect('/home/alcal/Documentos/clashroluby/ClashRoluby/Juego/BDCLash.db')
 c = bd.cursor()
 
 def traer_carta_random():
