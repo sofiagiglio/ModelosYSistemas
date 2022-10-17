@@ -147,12 +147,3 @@ class Jugador:
 
 if __name__ == "__main__":
     p = Pantalla()
-
-
-
-''' JSON -> diccionario
-datos = {
-"carta" = "....",
-"cartaOponente" = "....",
-"turno" = 1 o 2,
-}'''
