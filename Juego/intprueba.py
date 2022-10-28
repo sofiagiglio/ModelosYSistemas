@@ -2,11 +2,11 @@ import tkinter
 from PIL import ImageTk, Image
 from bd_utils import traer_carta_random
 from urllib.request import Request, urlopen
-import login
+#import login
 from functools import partial
 #from itertools import cycle
 
-l = login.Login()
+#l = login.Login()
 
 class Pantalla:
     def __init__(self):
@@ -17,44 +17,63 @@ class Pantalla:
         print(f'j2 vida = {self.j2.vida}')
         self.ventana = tkinter.Tk()
         self.ventana.title("Battle cards Roluby<3")
+        
         self.f1 = tkinter.Frame(self.ventana)
         self.f1.grid(column=0, row=0)
-        f2 = tkinter.Frame(self.ventana)
-        f2.grid(column=1, row=0)
-        self.f3 = tkinter.Frame(self.ventana)
-        self.f3.grid(column=2, row=0)
-        f4 = tkinter.Frame(self.ventana)
-        f4.grid(column=0, row=1)
-        f5 = tkinter.Frame(self.ventana)
-        f5.grid(column=2, row=1)
+        self.f2 = tkinter.Frame(self.f1)
+        self.f2.grid(column=0, row=0)
+        self.f3 = tkinter.Frame(self.f1)
+        self.f3.grid(column=1, row=0)
+        
+        self.f4 = tkinter.Frame(self.ventana)
+        self.f4.grid(column=0, row=1)
+        self.f5 = tkinter.Frame(self.f4)
+        self.f5.grid(column=0, row=0)
+        f6 = tkinter.Frame(self.f4)
+        f6.grid(column=1, row=0)
+        f7 = tkinter.Frame(self.f4)
+        f7.grid(column=2, row=0)
+        
+        self.f8 = tkinter.Frame(self.ventana)
+        self.f8.grid(column=0, row=2)
+        self.f9 = tkinter.Frame(self.f8)
+        self.f9.grid(column=0, row=0)
+        f10 = tkinter.Frame(self.f8)
+        f10.grid(column=1, row=0)
+        self.f11 = tkinter.Frame(self.f8)
+        self.f11.grid(column=2, row=0)
+        
         lomo = ImageTk.PhotoImage(Image.open('lomo_clash.png'))
         self.photo = self.sacar_cartas(self.j1)
-        self.l1 = tkinter.Label(self.f1)
+        self.l1 = tkinter.Label(self.f5)
         self.l1.grid(column=0, row=0)
-        self.l2 = tkinter.Label(self.f3, image=lomo)
+        self.l2 = tkinter.Label(f7, image=lomo)
         self.l2.grid(column=0, row=0)
         self.poner_foto(self.l1,1)
-        
-        boton1 = tkinter.Button(f2, text = "Vida", command = partial(self.jugar_mano, self.j1.comp_vida, self.j2))
+       
+        boton1 = tkinter.Button(f6, text = "Vida", command = partial(self.jugar_mano, self.j1.comp_vida, self.j2))
         boton1.pack()
-        boton2 = tkinter.Button(f2, text = "Daño", command = partial(self.jugar_mano, self.j1.comp_danio, self.j2))
+        boton2 = tkinter.Button(f6, text = "Daño", command = partial(self.jugar_mano, self.j1.comp_danio, self.j2))
         boton2.pack()
-        boton3 = tkinter.Button(f2, text = "Velocidad", command = partial(self.jugar_mano, self.j1.comp_velocidad, self.j2))
+        boton3 = tkinter.Button(f6, text = "Velocidad", command = partial(self.jugar_mano, self.j1.comp_velocidad, self.j2))
         boton3.pack()
-        self.boton4 = tkinter.Button(f2, text = "Rendirse", command = partial(self.jugar_mano, self.j1.rendirse, None))
+        self.boton4 = tkinter.Button(f6, text = "Rendirse", command = partial(self.jugar_mano, self.j1.rendirse, None))
         self.boton4.pack()
-        self.etiqueta1 = tkinter.Label(f4, text = f'NOMBRE: {self.j1.nombre}')
+        
+        self.etiqueta1 = tkinter.Label(self.f9, text = f'NOMBRE: {self.j1.nombre}')
         self.etiqueta1.pack()
-        self.etiqueta2 = tkinter.Label(f4, text = f'DAÑO: {self.j1.danio}')
+        self.etiqueta2 = tkinter.Label(self.f9, text = f'DAÑO: {self.j1.danio}')
         self.etiqueta2.pack()
-        self.etiqueta3 = tkinter.Label(f4, text = f'VIDA: {self.j1.vida}')
+        self.etiqueta3 = tkinter.Label(self.f9, text = f'VIDA: {self.j1.vida}')
         self.etiqueta3.pack()
-        self.etiqueta4 = tkinter.Label(f4, text = f'VELOCIDAD: {self.j1.velocidad}')
+        self.etiqueta4 = tkinter.Label(self.f9, text = f'VELOCIDAD: {self.j1.velocidad}')
         self.etiqueta4.pack()
-        self.etiqueta5 = tkinter.Label(f4, text = f'PUNTOS: {self.j1.puntos}')
+        self.etiqueta5 = tkinter.Label(self.f9, text = f'PUNTOS: {self.j1.puntos}')
         self.etiqueta5.pack()
-        self.etiqueta6 = tkinter.Label(f5, text = "")
+        self.etiqueta6 = tkinter.Label(self.f11, text = "")
         self.etiqueta6.pack()
+        self.etiqueta7 = tkinter.Label(f10, text = ".....................")
+        self.etiqueta7.pack()
         
         self.ventana.mainloop()
     
